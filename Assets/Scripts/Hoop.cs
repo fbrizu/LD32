@@ -18,6 +18,8 @@ public class Hoop : MonoBehaviour {
 	public static bool _canPowerUp;
 	public int _powerPressCount;
 	public int _totalPowerCount;
+	public GameObject powerHoop1;
+	public GameObject powerHoop2;
 	bool _canTwist;
 	KeyCode doTheTwist;
 	float _currentAngle;

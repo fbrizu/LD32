@@ -14,7 +14,7 @@ public class TimingBar : MonoBehaviour {
 	void Update () {
 		_currentX = Mathf.PingPong (Time.time, 1) * 100;
 		transform.localPosition = new Vector3 (_currentX, 5, 0);
-		if (Hoop._canTwist) {
+		if (Hoop._timeToTwist) {
 			_knob.color = Color.red;
 		} else {
 			_knob.color = Color.white;

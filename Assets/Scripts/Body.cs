@@ -6,10 +6,13 @@ public class Body : MonoBehaviour {
 	Animator _animator;
 	public float _jumpTime = 2.0f;
 	public float _jumpDistance = 1.0f;
+	public int health = 5; 
 	Vector3 _targetPosition;
 	bool _isMoving = false;
 	KeyCode _leftArrow;
 	KeyCode _rightArrow;
+	bool _canTakeDamage = true;
+	public float _recoveryTime = 2f;
 
 	// Use this for initialization
 	void Start () {
@@ -24,6 +27,8 @@ public class Body : MonoBehaviour {
 			_leftArrow = KeyCode.RightArrow;
 			_rightArrow = KeyCode.LeftArrow;
 		}
+
+		_canTakeDamage = true;
 	}
 	
 	// Update is called once per frame
@@ -55,5 +60,23 @@ public class Body : MonoBehaviour {
 			_animator.speed = 0.0f;
 			_isMoving = false;
 		}
+
+		if(health <= 0) {
+			GameController.GameOver = true;
+			Debug.Log("Player " + id + " lost!!");
+		}
+	}
+
+	public void TakeDamage(int damage) {
+		if(_canTakeDamage) {
+			health -= damage;
+			_canTakeDamage = false;
+			Invoke("AllowDamageTaken", _recoveryTime);
+			Debug.Log("Test");
+		}
+	}
+
+	private void AllowDamageTaken() {
+		_canTakeDamage = true;
 	}
 }

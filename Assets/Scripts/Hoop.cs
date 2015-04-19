@@ -32,19 +32,24 @@ public class Hoop : MonoBehaviour {
 		}
 	}
 	void OnTriggerEnter(Collider other) {
-		if (other.GetComponent<Hoop> ()._currentJointIndex < _currentJointIndex) {
-			//Push the other player's hoop down
-			if (other.GetComponent<Hoop> ()._currentJointIndex - 1 >= 0) {
-				Debug.Log ("Denied!");
-				other.GetComponent<Hoop> ()._currentJointIndex = other.GetComponent<Hoop> ()._currentJointIndex - 1;
+		if(other.tag == "Hoop") {
+			if (other.GetComponent<Hoop> ()._currentJointIndex < _currentJointIndex) {
+				//Push the other player's hoop down
+				if (other.GetComponent<Hoop> ()._currentJointIndex - 1 >= 0) {
+					Debug.Log ("Denied!");
+					other.GetComponent<Hoop> ()._currentJointIndex = other.GetComponent<Hoop> ()._currentJointIndex - 1;
+				}
+			} else if (other.GetComponent<Hoop>()._currentJointIndex == _currentJointIndex && id==1) {
+				Vector3 collisionPoint = GetPointOfContact();
+				if (!collisionPoint.Equals(new Vector3(-99,-99,-99))) {
+					GameObject prefabBoing = Instantiate (boing) as GameObject;
+					prefabBoing.transform.position = collisionPoint;
+					Destroy (prefabBoing, 1f);
+				}
 			}
-		} else if (other.GetComponent<Hoop>()._currentJointIndex == _currentJointIndex && id==1) {
-			Vector3 collisionPoint = GetPointOfContact();
-			if (!collisionPoint.Equals(new Vector3(-99,-99,-99))) {
-				GameObject prefabBoing = Instantiate (boing) as GameObject;
-				prefabBoing.transform.position = collisionPoint;
-				Destroy (prefabBoing, 1f);
-			}
+		}
+		else if(other.tag == "Player" && other.GetComponent<Body>().id != id) {
+			other.GetComponent<Body>().TakeDamage(1);
 		}
 	}
 	void Update () {

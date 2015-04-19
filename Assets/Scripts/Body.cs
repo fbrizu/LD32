@@ -63,12 +63,14 @@ public class Body : MonoBehaviour {
 			_animator.SetBool("isJumping", true);
 			_animator.speed = 1.0f;
 			_isMoving = true;
+			_tilt = 0.5f;
 		}
 		else if(Input.GetKey(_leftArrow) && !_isMoving){
 			_targetPosition = this.transform.position + this.transform.right * _jumpDistance;
 			_animator.SetBool("isJumping", true);
 			_animator.speed = 1.0f;
 			_isMoving = true;
+			_tilt = 0.5f;
 		}
 		if(_animator.GetCurrentAnimatorStateInfo(0).IsName("wobblyDude_jump_loop")){
 			this.transform.position = Vector3.Lerp(this.transform.position, _targetPosition, _jumpTime * Time.deltaTime);

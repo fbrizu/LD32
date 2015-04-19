@@ -69,7 +69,7 @@ public class Hoop : MonoBehaviour {
 			status.color = Color.gray;
 			_timeToTwist = false;
 		}
-		if (_timeCount < 0.60f && _timeCount > 0.40f) {
+		if (_timeCount < 0.55f && _timeCount > 0.45f) {
 			_canPowerUp = true;
 		} else {
 			_canPowerUp = false;
@@ -93,7 +93,7 @@ public class Hoop : MonoBehaviour {
 				}
 			}
 			if (_canPowerUp) {
-				_powerPressCount = Mathf.Max(_powerPressCount+1, _totalPowerCount);
+				_powerPressCount = Mathf.Clamp(_powerPressCount+1, 0, _totalPowerCount);
 			}
 		}
 		_currentSpeed = _currentSpeed * _slowDownSpeed;

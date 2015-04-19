@@ -2,7 +2,9 @@
 using System.Collections;
 
 public class GameController : MonoBehaviour {
-	public static bool GameOver = false;
+	public bool GameOver = false;
+
+	public GameObject _gameOverPanel;
 
 	// Use this for initialization
 	void Start () {
@@ -16,10 +18,14 @@ public class GameController : MonoBehaviour {
 
 	public void EndGame() {
 		GameOver = true;
-		StartCreditsScreen();
+		ShowEndGameScreen();
 	}
 
-	public void StartCreditsScreen() {
-		
+	private void ShowEndGameScreen() {
+		_gameOverPanel.SetActive(true);
+	}
+
+	private void ShowCreditsScreen() {
+
 	}
 }

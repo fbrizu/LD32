@@ -68,6 +68,7 @@ public class Hoop : MonoBehaviour {
 			status.text = "no go";
 			status.color = Color.gray;
 			_timeToTwist = false;
+			_canTwist = true;
 		}
 		if (_timeCount < 0.55f && _timeCount > 0.45f) {
 			_canPowerUp = true;
@@ -85,7 +86,7 @@ public class Hoop : MonoBehaviour {
 					_currentJointIndex++;
 				}
 				_canTwist = false;
-			} else {
+			} else if(!_timeToTwist) {
 				//Else slow down 
 				_currentSpeed = _currentSpeed/2f;
 				if (_currentJointIndex-1 >=0) {
@@ -101,7 +102,6 @@ public class Hoop : MonoBehaviour {
 		//If no actions for 2 sec, slow down hoop speed
 		if (_timeCount > 1f) {
 			_timeCount = _timeCount % 1;
-			_canTwist = true;
 
 		}
 		//If player doesn't press in 2 seconds, hoop falls down by 1 joint

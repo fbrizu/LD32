@@ -80,7 +80,9 @@ public class Body : MonoBehaviour {
 		}
 
 		if(_currentHealth <= 0) {
-			GameController.GameOver = true;
+			GameController gameController = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<GameController>();
+			gameController.GameOver = true;
+			gameController.EndGame();
 			Debug.Log("Player " + id + " lost!!");
 		}
 	}

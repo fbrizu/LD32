@@ -30,8 +30,8 @@ public class Body : MonoBehaviour {
 			_tiltRight = KeyCode.E;
 		} else {
 			//Player two has reversed directions because it is facing the opposite way
-			_leftArrow = KeyCode.J;
-			_rightArrow = KeyCode.L;
+			_leftArrow = KeyCode.L;
+			_rightArrow = KeyCode.J;
 			_tiltLeft = KeyCode.O;
 			_tiltRight = KeyCode.U;
 		}
@@ -40,7 +40,7 @@ public class Body : MonoBehaviour {
 	}
 	
 	void Update () {
-		if (!_animator.GetBool ("isJumping") && Input.GetKey (_tiltLeft)) {
+		if (Input.GetKey (_tiltLeft) && !_isMoving) {
 			_tilt = Mathf.Min(1, _tilt + _bendSpeed);
 			_animator.Play ("wobblyDude_bend", 0, _tilt);
 			_animator.speed = 0f;
@@ -49,7 +49,15 @@ public class Body : MonoBehaviour {
 			_animator.Play ("wobblyDude_bend", 0, _tilt);
 			_animator.speed = 0f;
 		}
-		if(Input.GetKey(_rightArrow) && !_isMoving){
+		if (Input.GetKey (_tiltRight) && !_isMoving) {
+			_tilt = Mathf.Max (0, _tilt - _bendSpeed);
+		}
+		if(!_animator.GetBool("isJumping")){
+			_animator.Play("wobblyDude_bend", 0, _tilt);
+			_animator.speed = 0.0f;
+		}
+
+	if(Input.GetKey(_rightArrow) && !_isMoving){
 			_targetPosition = this.transform.position + this.transform.right * _jumpDistance * -1;
 			_animator.SetBool("isJumping", true);
 			_animator.speed = 1.0f;

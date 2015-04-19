@@ -19,16 +19,18 @@ public class Hoop : MonoBehaviour {
 	float _currentAngle;
 	float _timeCount;
 	float _lastTimePressed;
+	int _powerPressCount;
 
 	void Start () {
 		_currentJointIndex = 0;
 		_currentAngle = 0;
 		_timeCount = 0;
 		_lastTimePressed = 0;
+		_powerPressCount = 0;
 		if (id == 1) {
 			doTheTwist = KeyCode.W;
 		} else {
-			doTheTwist = KeyCode.UpArrow;
+			doTheTwist = KeyCode.I;
 		}
 	}
 	void OnTriggerEnter(Collider other) {
@@ -58,6 +60,9 @@ public class Hoop : MonoBehaviour {
 			status.text = "GO";
 			status.color = Color.red;
 			_canTwist = true;
+			if (_timeCount<0.60f && _timeCount>0.40f) {
+
+			}
 		} else {
 			status.text = "no go";
 			status.color = Color.gray;

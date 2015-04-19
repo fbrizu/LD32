@@ -6,7 +6,8 @@ public class Body : MonoBehaviour {
 	Animator _animator;
 	public float _jumpTime = 2.0f;
 	public float _jumpDistance = 1.0f;
-	public int health = 5; 
+	public int _currentHealth = 5; 
+	public int _maxHealth = 5; 
 	public float _bendSpeed;
 	Vector3 _targetPosition;
 	bool _isMoving = false;
@@ -78,7 +79,7 @@ public class Body : MonoBehaviour {
 			_isMoving = false;
 		}
 
-		if(health <= 0) {
+		if(_currentHealth <= 0) {
 			GameController.GameOver = true;
 			Debug.Log("Player " + id + " lost!!");
 		}
@@ -86,7 +87,7 @@ public class Body : MonoBehaviour {
 
 	public void TakeDamage(int damage) {
 		if(_canTakeDamage) {
-			health -= damage;
+			_currentHealth -= damage;
 			_canTakeDamage = false;
 			Invoke("AllowDamageTaken", _recoveryTime);
 		}

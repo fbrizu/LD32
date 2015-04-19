@@ -14,14 +14,18 @@ public class Hoop : MonoBehaviour {
 	public Text status;
 	public GameObject boing;
 	public int _currentJointIndex;
-	public static bool _canTwist;
+	public static bool _timeToTwist;
+	public static bool _canPowerUp;
+	public int _powerPressCount;
+	public int _totalPowerCount;
+	bool _canTwist;
 	KeyCode doTheTwist;
 	float _currentAngle;
 	float _timeCount;
 	float _lastTimePressed;
-	int _powerPressCount;
 
 	void Start () {
+		_canTwist = true;
 		_currentJointIndex = 0;
 		_currentAngle = 0;
 		_timeCount = 0;
@@ -59,25 +63,28 @@ public class Hoop : MonoBehaviour {
 		if (_timeCount < 0.75f && _timeCount > 0.25f) {
 			status.text = "GO";
 			status.color = Color.red;
-			_canTwist = true;
-			if (_timeCount<0.60f && _timeCount>0.40f) {
-
-			}
+			_timeToTwist = true;
 		} else {
 			status.text = "no go";
 			status.color = Color.gray;
-			_canTwist = false;
+			_timeToTwist = false;
+		}
+		if (_timeCount < 0.60f && _timeCount > 0.40f) {
+			_canPowerUp = true;
+		} else {
+			_canPowerUp = false;
 		}
 		_currentAngle = (_currentAngle + (Time.deltaTime * _currentSpeed)) % 360f;
 		
 		if (Input.GetKeyDown(doTheTwist)) {
 			_lastTimePressed = Time.time;
-			if (_canTwist) {
+			if (_timeToTwist && _canTwist) {
 				//Increase speed 
 				_currentSpeed = Mathf.Min (_maxSpeed, Mathf.Max(_currentSpeed*_speedUpSpeed, 500));
 				if (_currentSpeed == _maxSpeed && _currentJointIndex+1 < _characterJoints.Length) {
 					_currentJointIndex++;
 				}
+				_canTwist = false;
 			} else {
 				//Else slow down 
 				_currentSpeed = _currentSpeed/2f;
@@ -85,12 +92,16 @@ public class Hoop : MonoBehaviour {
 					_currentJointIndex--;
 				}
 			}
+			if (_canPowerUp) {
+				_powerPressCount = Mathf.Max(_powerPressCount+1, _totalPowerCount);
+			}
 		}
 		_currentSpeed = _currentSpeed * _slowDownSpeed;
 		
 		//If no actions for 2 sec, slow down hoop speed
 		if (_timeCount > 1f) {
 			_timeCount = _timeCount % 1;
+			_canTwist = true;
 
 		}
 		//If player doesn't press in 2 seconds, hoop falls down by 1 joint

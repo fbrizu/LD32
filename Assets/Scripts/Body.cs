@@ -6,34 +6,44 @@ public class Body : MonoBehaviour {
 	Animator _animator;
 	public float _jumpTime = 2.0f;
 	public float _jumpDistance = 1.0f;
+	public float _bendSpeed;
 	Vector3 _targetPosition;
 	bool _isMoving = false;
 	KeyCode _leftArrow;
 	KeyCode _rightArrow;
+	KeyCode _tiltLeft;
+	KeyCode _tiltRight;
+	float _tilt;
 
-	// Use this for initialization
 	void Start () {
+		_tilt = 0.5f;
 		_animator = this.GetComponent<Animator>();
-		_animator.Play("wobblyDude_bend", 0, 0.8f);
+		_animator.Play("wobblyDude_bend", 0, 0.5f);
 		_animator.speed = 0.0f;
 		if (id == 1) {
 			_leftArrow = KeyCode.A;
 			_rightArrow = KeyCode.D;
+			_tiltLeft = KeyCode.Q;
+			_tiltRight = KeyCode.E;
 		} else {
 			//Player two has reversed directions because it is facing the opposite way
-			_leftArrow = KeyCode.RightArrow;
-			_rightArrow = KeyCode.LeftArrow;
+			_leftArrow = KeyCode.J;
+			_rightArrow = KeyCode.L;
+			_tiltLeft = KeyCode.O;
+			_tiltRight = KeyCode.U;
 		}
 	}
 	
-	// Update is called once per frame
 	void Update () {
-		Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-		if(!_animator.GetBool("isJumping")){
-			_animator.Play("wobblyDude_bend", 0, (ray.direction.x + 1.0f)/2);
+		if (!_animator.GetBool ("isJumping") && Input.GetKey (_tiltLeft)) {
+			_tilt = Mathf.Min(1, _tilt + _bendSpeed);
+			_animator.Play ("wobblyDude_bend", 0, _tilt);
+			_animator.speed = 0.0f;
+		} else if (!_animator.GetBool ("isJumping") && Input.GetKey (_tiltRight)) {
+			_tilt = Mathf.Max (0, _tilt - _bendSpeed);
+			_animator.Play ("wobblyDude_bend", 0, _tilt);
 			_animator.speed = 0.0f;
 		}
-
 		if(Input.GetKey(_rightArrow) && !_isMoving){
 			_targetPosition = this.transform.position + this.transform.right * _jumpDistance * -1;
 			_animator.SetBool("isJumping", true);
@@ -46,7 +56,6 @@ public class Body : MonoBehaviour {
 			_animator.speed = 1.0f;
 			_isMoving = true;
 		}
-
 		if(_animator.GetCurrentAnimatorStateInfo(0).IsName("wobblyDude_jump_loop")){
 			this.transform.position = Vector3.Lerp(this.transform.position, _targetPosition, _jumpTime * Time.deltaTime);
 		}

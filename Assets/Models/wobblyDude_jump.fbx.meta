@@ -1,0 +1,251 @@
+fileFormatVersion: 2
+guid: 1076207f9e8e67e4e827127389d30311
+ModelImporter:
+  serializedVersion: 16
+  fileIDToRecycleName:
+    100000: joint_wobbly1
+    100002: joint_wobbly2
+    100004: joint_wobbly3
+    100006: joint_wobbly4
+    100008: joint_wobbly5
+    100010: joint_wobbly6
+    100012: joint_wobbly7
+    100014: joint_wobbly8
+    100016: joint_wobbly_Tip
+    100018: wobblyDude_body
+    100020: wobblyDude_eyeL
+    100022: wobblyDude_eyeR
+    100024: //RootNode
+    400000: joint_wobbly1
+    400002: joint_wobbly2
+    400004: joint_wobbly3
+    400006: joint_wobbly4
+    400008: joint_wobbly5
+    400010: joint_wobbly6
+    400012: joint_wobbly7
+    400014: joint_wobbly8
+    400016: joint_wobbly_Tip
+    400018: wobblyDude_body
+    400020: wobblyDude_eyeL
+    400022: wobblyDude_eyeR
+    400024: //RootNode
+    4300000: wobblyDude_body
+    4300002: wobblyDude_eyeL
+    4300004: wobblyDude_eyeR
+    7400000: wobblyDude_jump_enter
+    7400002: wobblyDude_jump_loop
+    7400004: wobblyDude_jump_exit
+    9500000: //RootNode
+    13700000: wobblyDude_body
+    13700002: wobblyDude_eyeL
+    13700004: wobblyDude_eyeR
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: wobblyDude_jump_enter
+      takeName: wobblyDude_jump
+      firstFrame: 50
+      lastFrame: 53
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: joint_wobbly1
+        weight: 1
+      - path: joint_wobbly1/joint_wobbly2
+        weight: 1
+      - path: joint_wobbly1/joint_wobbly2/joint_wobbly3
+        weight: 1
+      - path: joint_wobbly1/joint_wobbly2/joint_wobbly3/joint_wobbly4
+        weight: 1
+      - path: joint_wobbly1/joint_wobbly2/joint_wobbly3/joint_wobbly4/joint_wobbly5
+        weight: 1
+      - path: joint_wobbly1/joint_wobbly2/joint_wobbly3/joint_wobbly4/joint_wobbly5/joint_wobbly6
+        weight: 1
+      - path: joint_wobbly1/joint_wobbly2/joint_wobbly3/joint_wobbly4/joint_wobbly5/joint_wobbly6/joint_wobbly7
+        weight: 1
+      - path: joint_wobbly1/joint_wobbly2/joint_wobbly3/joint_wobbly4/joint_wobbly5/joint_wobbly6/joint_wobbly7/joint_wobbly8
+        weight: 1
+      - path: joint_wobbly1/joint_wobbly2/joint_wobbly3/joint_wobbly4/joint_wobbly5/joint_wobbly6/joint_wobbly7/joint_wobbly8/joint_wobbly_Tip
+        weight: 1
+      - path: wobblyDude_body
+        weight: 1
+      - path: wobblyDude_eyeL
+        weight: 1
+      - path: wobblyDude_eyeR
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: wobblyDude_jump_loop
+      takeName: wobblyDude_jump
+      firstFrame: 53
+      lastFrame: 63
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: joint_wobbly1
+        weight: 1
+      - path: joint_wobbly1/joint_wobbly2
+        weight: 1
+      - path: joint_wobbly1/joint_wobbly2/joint_wobbly3
+        weight: 1
+      - path: joint_wobbly1/joint_wobbly2/joint_wobbly3/joint_wobbly4
+        weight: 1
+      - path: joint_wobbly1/joint_wobbly2/joint_wobbly3/joint_wobbly4/joint_wobbly5
+        weight: 1
+      - path: joint_wobbly1/joint_wobbly2/joint_wobbly3/joint_wobbly4/joint_wobbly5/joint_wobbly6
+        weight: 1
+      - path: joint_wobbly1/joint_wobbly2/joint_wobbly3/joint_wobbly4/joint_wobbly5/joint_wobbly6/joint_wobbly7
+        weight: 1
+      - path: joint_wobbly1/joint_wobbly2/joint_wobbly3/joint_wobbly4/joint_wobbly5/joint_wobbly6/joint_wobbly7/joint_wobbly8
+        weight: 1
+      - path: joint_wobbly1/joint_wobbly2/joint_wobbly3/joint_wobbly4/joint_wobbly5/joint_wobbly6/joint_wobbly7/joint_wobbly8/joint_wobbly_Tip
+        weight: 1
+      - path: wobblyDude_body
+        weight: 1
+      - path: wobblyDude_eyeL
+        weight: 1
+      - path: wobblyDude_eyeR
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: wobblyDude_jump_exit
+      takeName: wobblyDude_jump
+      firstFrame: 63
+      lastFrame: 66
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: joint_wobbly1
+        weight: 1
+      - path: joint_wobbly1/joint_wobbly2
+        weight: 1
+      - path: joint_wobbly1/joint_wobbly2/joint_wobbly3
+        weight: 1
+      - path: joint_wobbly1/joint_wobbly2/joint_wobbly3/joint_wobbly4
+        weight: 1
+      - path: joint_wobbly1/joint_wobbly2/joint_wobbly3/joint_wobbly4/joint_wobbly5
+        weight: 1
+      - path: joint_wobbly1/joint_wobbly2/joint_wobbly3/joint_wobbly4/joint_wobbly5/joint_wobbly6
+        weight: 1
+      - path: joint_wobbly1/joint_wobbly2/joint_wobbly3/joint_wobbly4/joint_wobbly5/joint_wobbly6/joint_wobbly7
+        weight: 1
+      - path: joint_wobbly1/joint_wobbly2/joint_wobbly3/joint_wobbly4/joint_wobbly5/joint_wobbly6/joint_wobbly7/joint_wobbly8
+        weight: 1
+      - path: joint_wobbly1/joint_wobbly2/joint_wobbly3/joint_wobbly4/joint_wobbly5/joint_wobbly6/joint_wobbly7/joint_wobbly8/joint_wobbly_Tip
+        weight: 1
+      - path: wobblyDude_body
+        weight: 1
+      - path: wobblyDude_eyeL
+        weight: 1
+      - path: wobblyDude_eyeR
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  additionalBone: 0
+  userData: 

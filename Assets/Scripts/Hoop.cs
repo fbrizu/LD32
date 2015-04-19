@@ -54,7 +54,7 @@ public class Hoop : MonoBehaviour {
 				}
 			}
 		}
-		else if(other.tag == "Player" && other.GetComponent<Body>().id != id) {
+		else if(other.tag == "Player" && other.GetComponent<Body>().id != id && _currentJointIndex>2) {
 			other.GetComponent<Body>().TakeDamage(1);
 		}
 	}

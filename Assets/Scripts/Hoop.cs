@@ -17,12 +17,16 @@ public class Hoop : MonoBehaviour {
 	public static bool _timeToTwist;
 	public static bool _canPowerUp;
 	public int _powerPressCount;
-	public int _totalPowerCount;
+	public int _maxPowerCount;
+	public int _comboCount;
+	public int _maxCombo;
 	public Mesh _basicHoop;
 	public Mesh _powerHoop1;
 	public Mesh _powerHoop2;
 	public SkinnedMeshRenderer _hoopMesh;
 	bool _canTwist;
+	bool _power1On;
+	bool _power2On;
 	KeyCode doTheTwist;
 	float _currentAngle;
 	float _timeCount;
@@ -35,11 +39,15 @@ public class Hoop : MonoBehaviour {
 		_timeCount = 0;
 		_lastTimePressed = 0;
 		_powerPressCount = 0;
+		_comboCount = 0;
+		_power1On = false;
+		_power2On = false;
 		if (id == 1) {
 			doTheTwist = KeyCode.W;
 		} else {
 			doTheTwist = KeyCode.I;
 		}
+		_hoopMesh.sharedMesh = _basicHoop;
 	}
 	void OnTriggerEnter(Collider other) {
 		if(other.tag == "Hoop") {
@@ -90,20 +98,47 @@ public class Hoop : MonoBehaviour {
 					_currentJointIndex++;
 				}
 				_canTwist = false;
+				if (_comboCount < _maxCombo) {
+					_comboCount++;
+				}
+				if (_comboCount == _maxCombo) {
+					_power2On = true;
+					_power1On = false;
+				}
 			} else if(!_timeToTwist) {
 				//Else slow down 
 				_currentSpeed = _currentSpeed/2f;
 				if (_currentJointIndex-1 >=0) {
 					_currentJointIndex--;
 				}
-			}
-			if (_canPowerUp) {
-				_powerPressCount = Mathf.Clamp(_powerPressCount+1, 0, _totalPowerCount);
-				if (_powerPressCount == _totalPowerCount) {
-					Debug.Log ("Power up! setting mesh to power hoop");
-					_hoopMesh.sharedMesh = _basicHoop;
+				//Break combo!
+				_comboCount=0;
+				if (_power2On) {
+					_power2On = false;
+				}
+				if (_powerPressCount == _maxPowerCount) {
+					//Set power 1 on again if it was set to false because of power 2 previously
+					_power1On = true;
 				}
 			}
+			if (_canPowerUp) {
+				_powerPressCount = Mathf.Clamp(_powerPressCount+1, 0, _maxPowerCount);
+				if (_powerPressCount == _maxPowerCount && !_power2On) {
+					_power1On = true;
+				}
+			}
+		}
+		//Update hoop 
+		Debug.Log (_power1On + ", " + _power2On);
+		if (_power2On) {
+			Debug.Log ("CHANGING TO POWER2 HOOP");
+			_hoopMesh.sharedMesh = _powerHoop2;
+		} else if (!_power2On && _power1On) { 
+			_hoopMesh.sharedMesh = _powerHoop1;
+			Debug.Log ("CHANGING TO POWER1 HOOP");
+		} else if (!_power1On && !_power2On && _hoopMesh.sharedMesh != _basicHoop) {
+			_hoopMesh.sharedMesh = _basicHoop;
+			Debug.Log ("CHANGING TO NORMAL HOOP");
 		}
 		_currentSpeed = _currentSpeed * _slowDownSpeed;
 		

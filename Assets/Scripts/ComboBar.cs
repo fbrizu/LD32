@@ -2,7 +2,7 @@
 using UnityEngine.UI;
 using System.Collections;
 
-public class PowerBar : MonoBehaviour {
+public class ComboBar : MonoBehaviour {
 
 	public Hoop _playerHoop;
 	public int _framesPerColour;
@@ -12,8 +12,8 @@ public class PowerBar : MonoBehaviour {
 	int _colourID;
 	Color[] _colours;
 	int _currentFrameCount;
-
-
+	
+	
 	void Start () {
 		_bar = GetComponent<Image> ();
 		_colourID = 0;
@@ -22,7 +22,7 @@ public class PowerBar : MonoBehaviour {
 	}
 	void Update () {
 		//Update bar
-		_currentPower = (float) _playerHoop._powerPressCount / _playerHoop._maxPowerCount;
+		_currentPower = (float) _playerHoop._comboCount / _playerHoop._maxCombo;
 		if (_bar.fillAmount != _currentPower) {
 			_bar.fillAmount = _currentPower;
 		}

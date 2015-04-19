@@ -11,15 +11,17 @@ public class Hoop : MonoBehaviour {
 	public float _slowDownSpeed;
 	public float _maxSpeed;
 	public float _lerpSmoothing = 0.02f;
-	public Text status;
-	public GameObject boing;
+	public Text _status;
+	public GameObject _boing;
 	public int _currentJointIndex;
 	public static bool _timeToTwist;
 	public static bool _canPowerUp;
 	public int _powerPressCount;
 	public int _totalPowerCount;
-	public GameObject powerHoop1;
-	public GameObject powerHoop2;
+	public Mesh _basicHoop;
+	public Mesh _powerHoop1;
+	public Mesh _powerHoop2;
+	public SkinnedMeshRenderer _hoopMesh;
 	bool _canTwist;
 	KeyCode doTheTwist;
 	float _currentAngle;
@@ -50,7 +52,7 @@ public class Hoop : MonoBehaviour {
 			} else if (other.GetComponent<Hoop>()._currentJointIndex == _currentJointIndex && id==1) {
 				Vector3 collisionPoint = GetPointOfContact();
 				if (!collisionPoint.Equals(new Vector3(-99,-99,-99))) {
-					GameObject prefabBoing = Instantiate (boing) as GameObject;
+					GameObject prefabBoing = Instantiate (_boing) as GameObject;
 					prefabBoing.transform.position = collisionPoint;
 					Destroy (prefabBoing, 1f);
 				}
@@ -63,12 +65,12 @@ public class Hoop : MonoBehaviour {
 	void Update () {
 		_timeCount = _timeCount + Time.deltaTime;
 		if (_timeCount < 0.75f && _timeCount > 0.25f) {
-			status.text = "GO";
-			status.color = Color.red;
+			_status.text = "GO";
+			_status.color = Color.red;
 			_timeToTwist = true;
 		} else {
-			status.text = "no go";
-			status.color = Color.gray;
+			_status.text = "no go";
+			_status.color = Color.gray;
 			_timeToTwist = false;
 			_canTwist = true;
 		}
@@ -97,6 +99,10 @@ public class Hoop : MonoBehaviour {
 			}
 			if (_canPowerUp) {
 				_powerPressCount = Mathf.Clamp(_powerPressCount+1, 0, _totalPowerCount);
+				if (_powerPressCount == _totalPowerCount) {
+					Debug.Log ("Power up! setting mesh to power hoop");
+					_hoopMesh.sharedMesh = _basicHoop;
+				}
 			}
 		}
 		_currentSpeed = _currentSpeed * _slowDownSpeed;

@@ -28,6 +28,7 @@ public class ComboBar : MonoBehaviour {
 		}
 		//Make bar all flashy if it's full
 		if (_bar.fillAmount == 1) {
+			_playerHoop._isComboActive = true;
 			_currentFrameCount = (_currentFrameCount - 1) % _framesPerColour;
 			if (_currentFrameCount == 0) {
 				_currentFrameCount = _framesPerColour;
@@ -35,6 +36,9 @@ public class ComboBar : MonoBehaviour {
 				_colourID = (_colourID+1) % _colours.Length;
 			}
 			_text.text = _text.text.Replace("POWER", "OVERDRIVE!");
+		}
+		else {
+			_playerHoop._isComboActive = false;
 		}
 	}
 }

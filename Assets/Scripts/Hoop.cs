@@ -24,6 +24,8 @@ public class Hoop : MonoBehaviour {
 	public Mesh _powerHoop1;
 	public Mesh _powerHoop2;
 	public SkinnedMeshRenderer _hoopMesh;
+	public bool _isComboActive = false;
+	public bool _isPowerUpActive = false;
 	bool _canTwist;
 	bool _power1On;
 	bool _power2On;
@@ -31,6 +33,8 @@ public class Hoop : MonoBehaviour {
 	float _currentAngle;
 	float _timeCount;
 	float _lastTimePressed;
+	float _comboMultiplier = 1.5f;
+	float _powerUpMultiplier = 2f;
 
 	void Start () {
 		_canTwist = true;
@@ -66,10 +70,16 @@ public class Hoop : MonoBehaviour {
 				}
 			}
 		}
-		else if(other.tag == "Player" && other.GetComponent<Body>().id != id && _currentJointIndex>2) {
-			other.GetComponent<Body>().TakeDamage(1);
+	}
+
+	void OnTriggerStay(Collider other) {
+		if(other.tag == "Player" && other.GetComponent<Body>().id != id) {
+			int powerUpMult = _isPowerUpActive ? 1 : 0;
+			int comboMult = _isComboActive ? 1 : 0;
+			other.GetComponent<Body>().TakeDamage(_currentJointIndex + comboMult * _comboMultiplier + powerUpMult * _powerUpMultiplier);
 		}
 	}
+
 	void Update () {
 		_timeCount = _timeCount + Time.deltaTime;
 		if (_timeCount < 0.75f && _timeCount > 0.25f) {

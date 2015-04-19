@@ -9,7 +9,7 @@ public class PowerBar : MonoBehaviour {
 	public Text _text;
 	Image _bar;
 	float _currentPower;
-
+	bool _obtainedPower = false;
 
 	void Start () {
 		_bar = GetComponent<Image> ();
@@ -22,8 +22,17 @@ public class PowerBar : MonoBehaviour {
 		}
 		//Make bar all flashy if it's full
 		if (_bar.fillAmount == 1) {
+			if(!_obtainedPower) {
+				Invoke("DisablePowerUp", 5f);
+				_obtainedPower = true;
+			}
 			GetComponent<ImageColorTransition>().colorsChanging = true;
 			_text.text = _text.text.Replace("POWER", "OVERDRIVE!");
 		}
+	}
+
+	void DisablePowerUp() {
+		_playerHoop._powerPressCount = 0;
+		_obtainedPower = false;
 	}
 }

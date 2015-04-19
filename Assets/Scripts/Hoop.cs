@@ -126,9 +126,9 @@ public class Hoop : MonoBehaviour {
 
 	Vector3 GetPointOfContact()	{
 		RaycastHit hit;
-		if (Physics.Raycast (transform.position, transform.forward, out hit)) { 
+		if (Physics.Raycast (transform.position, transform.forward, out hit) && hit.transform.tag.Equals("Hoop")) { 
 			return hit.point;
-		} else if (Physics.Raycast (transform.position, -1f*transform.forward, out hit)) {
+		} else if (Physics.Raycast (transform.position, -1f*transform.forward, out hit) && hit.transform.tag.Equals("Hoop")) {
 			return hit.point;
 		} else {
 			return new Vector3(-99, -99, -99);

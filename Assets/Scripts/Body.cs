@@ -93,6 +93,8 @@ public class Body : MonoBehaviour {
 			_currentHealth -= damage;
 			_canTakeDamage = false;
 			Invoke("AllowDamageTaken", _recoveryTime);
+
+			GameObject.FindGameObjectWithTag("MainCamera").GetComponent<ScreenShake>().StartShake(0.3f, 3);
 		}
 	}
 

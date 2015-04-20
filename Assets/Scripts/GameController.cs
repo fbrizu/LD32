@@ -4,6 +4,8 @@ using System.Collections;
 
 public class GameController : MonoBehaviour {
 	public bool GameOver = false;
+	public GameObject playerOne;
+	public GameObject playerTwo;
 
 	public GameObject _gameOverPanel;
 	public Text _winText;
@@ -15,7 +17,6 @@ public class GameController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
 	}
 
 	public void EndGame(int winnerID) {
@@ -30,5 +31,13 @@ public class GameController : MonoBehaviour {
 
 	private void ShowCreditsScreen() {
 
+	}
+
+	public void PlayAgain() {
+
+	}
+
+	public void ShowMainMenu() {
+		
 	}
 }

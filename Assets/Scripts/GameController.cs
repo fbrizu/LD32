@@ -29,15 +29,15 @@ public class GameController : MonoBehaviour {
 		_winText.text = "Player " + winnerID + " wins!";
 	}
 
-	private void ShowCreditsScreen() {
-
+	public void ShowCreditsScreen() {
+		Application.LoadLevel("Credits");
 	}
 
 	public void PlayAgain() {
-
+		Application.LoadLevel("hoopyTest");
 	}
 
 	public void ShowMainMenu() {
-		
+		Application.LoadLevel("MainMenu");
 	}
 }

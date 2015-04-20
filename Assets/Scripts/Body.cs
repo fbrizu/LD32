@@ -18,6 +18,8 @@ public class Body : MonoBehaviour {
 	KeyCode _tiltLeft;
 	KeyCode _tiltRight;
 	float _tilt;
+	Vector3 _initialHitPosition;
+	bool _takingDamage = false;
 
 	void Start () {
 		_tilt = 0.5f;
@@ -86,6 +88,11 @@ public class Body : MonoBehaviour {
 			gameController.GameOver = true;
 			gameController.EndGame((id+1)==2? 2 : 1);
 		}
+
+		if(_takingDamage) {
+			int mult = (id == 1) ? -1 : 1;
+			transform.position = Vector3.Lerp(transform.position, _initialHitPosition + mult * Vector3.right * 25, 0.35f);
+		}
 	}
 
 	public void TakeDamage(float damage) {
@@ -95,10 +102,18 @@ public class Body : MonoBehaviour {
 			Invoke("AllowDamageTaken", _recoveryTime);
 
 			GameObject.FindGameObjectWithTag("MainCamera").GetComponent<ScreenShake>().StartShake(0.3f, 3);
+
+			_takingDamage = true;
+			Invoke("StopSliding", 0.5f);
+			_initialHitPosition = transform.position;
 		}
 	}
 
 	private void AllowDamageTaken() {
 		_canTakeDamage = true;
+	}
+
+	private void StopSliding() {
+		_takingDamage = false;
 	}
 }

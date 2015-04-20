@@ -20,4 +20,8 @@ public class MainMenuScreen : MonoBehaviour {
 	void CanChangeScreen() {
 		_canChangeScreen = true;
 	}
+
+	public void ChangeScreen() {
+		Application.LoadLevel("hoopyTest");
+	}
 }

@@ -1,0 +1,93 @@
+fileFormatVersion: 2
+guid: e7eb4febe4de6484c8fd0daeb769f806
+ModelImporter:
+  serializedVersion: 16
+  fileIDToRecycleName:
+    100000: elephant_body
+    100002: elephant_eyeL
+    100004: elephant_eyeR
+    100006: //RootNode
+    100008: joint_wobbly1
+    100010: joint_wobbly2
+    100012: joint_wobbly3
+    100014: joint_wobbly4
+    100016: joint_wobbly5
+    100018: joint_wobbly6
+    100020: joint_wobbly7
+    100022: joint_wobbly8
+    100024: joint_wobbly_Tip
+    400000: elephant_body
+    400002: elephant_eyeL
+    400004: elephant_eyeR
+    400006: //RootNode
+    400008: joint_wobbly1
+    400010: joint_wobbly2
+    400012: joint_wobbly3
+    400014: joint_wobbly4
+    400016: joint_wobbly5
+    400018: joint_wobbly6
+    400020: joint_wobbly7
+    400022: joint_wobbly8
+    400024: joint_wobbly_Tip
+    4300000: elephant_eyeL
+    4300002: elephant_body
+    4300004: elephant_eyeR
+    7400000: elephant_spin
+    9500000: //RootNode
+    13700000: elephant_body
+    13700002: elephant_eyeL
+    13700004: elephant_eyeR
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: .00999999978
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  additionalBone: 0
+  userData: 

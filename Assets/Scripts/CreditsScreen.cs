@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class NewBehaviourScript : MonoBehaviour {
+public class CreditsScreen : MonoBehaviour {
 	bool _canChangeScreen = false;
 
 	// Use this for initialization
@@ -19,5 +19,9 @@ public class NewBehaviourScript : MonoBehaviour {
 
 	void CanChangeScreen() {
 		_canChangeScreen = true;
+	}
+
+	public void ChangeScreen() {
+		Application.LoadLevel("MainMenu");
 	}
 }

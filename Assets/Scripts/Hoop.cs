@@ -73,10 +73,16 @@ public class Hoop : MonoBehaviour {
 	}
 
 	void OnTriggerStay(Collider other) {
-		if(other.tag == "Player" && other.GetComponent<Body>().id != id) {
+		if(other.tag.Contains("P") && !other.tag.Contains(id.ToString())) {
 			int powerUpMult = _isPowerUpActive ? 1 : 0;
 			int comboMult = _isComboActive ? 1 : 0;
-			other.GetComponent<Body>().TakeDamage(_currentJointIndex + comboMult * _comboMultiplier + powerUpMult * _powerUpMultiplier);
+
+			//Grab the parent of the collided joint
+			Transform myParent = other.transform.parent;
+			while (!myParent.tag.Equals("Player")) {
+				myParent = myParent.transform.parent;
+			}
+			myParent.GetComponent<Body>().TakeDamage(_currentJointIndex + comboMult * _comboMultiplier + powerUpMult * _powerUpMultiplier);
 		}
 	}
 

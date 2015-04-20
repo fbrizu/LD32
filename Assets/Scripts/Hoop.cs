@@ -77,12 +77,13 @@ public class Hoop : MonoBehaviour {
 			int powerUpMult = _isPowerUpActive ? 1 : 0;
 			int comboMult = _isComboActive ? 1 : 0;
 
-			//Grab the parent of the collided joint
 			Transform myParent = other.transform.parent;
 			while (!myParent.tag.Equals("Player")) {
 				myParent = myParent.transform.parent;
 			}
 			myParent.GetComponent<Body>().TakeDamage(_currentJointIndex + comboMult * _comboMultiplier + powerUpMult * _powerUpMultiplier);
+
+
 		}
 	}
 

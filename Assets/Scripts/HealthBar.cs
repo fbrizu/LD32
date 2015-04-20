@@ -6,17 +6,16 @@ public class HealthBar : MonoBehaviour {
 
 	public Body _player;
 	public float _fillSpeed;
-	Image _HPbar;
+	public float _healthBarSize;
+	RectTransform _HPbar;
 	float _currentHealth;
 
 	void Start () {
-		_HPbar = GetComponent<Image> ();
+		_HPbar = GetComponent<RectTransform> ();
 	}
 	
 	void Update () {
 		_currentHealth = (float)_player._currentHealth / _player._maxHealth;
-		if (_HPbar.fillAmount != _currentHealth) {
-			_HPbar.fillAmount = Mathf.Lerp(_HPbar.fillAmount, _currentHealth, Time.deltaTime*_fillSpeed);
-		}
+		_HPbar.sizeDelta = new Vector2 (_currentHealth*_healthBarSize, 30.0f);
 	}
 }

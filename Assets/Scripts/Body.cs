@@ -96,6 +96,7 @@ public class Body : MonoBehaviour {
 	}
 
 	public void TakeDamage(float damage) {
+		Debug.Log ("taking damage!");
 		if(_canTakeDamage) {
 			_currentHealth -= damage;
 			_canTakeDamage = false;

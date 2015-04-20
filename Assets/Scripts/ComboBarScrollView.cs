@@ -4,7 +4,7 @@ using System.Collections;
 
 public class ComboBarScrollView : MonoBehaviour {
 
-	public Hoop _playerHoop;
+	public HoopSpinner _playerHoop;
 	public Text _text;
 	RectTransform _bar;
 	float _currentPower;

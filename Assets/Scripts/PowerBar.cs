@@ -4,7 +4,7 @@ using System.Collections;
 
 public class PowerBar : MonoBehaviour {
 
-	public Hoop _playerHoop;
+	public HoopSpinner _playerHoop;
 	public int _framesPerColour;
 	public Text _text;
 	Image _bar;

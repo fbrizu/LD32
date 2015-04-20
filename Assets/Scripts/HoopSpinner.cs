@@ -26,9 +26,9 @@ public class HoopSpinner : MonoBehaviour {
 	public bool _isPowerUpActive = false;
 	public float _comboMultiplier = 1.5f;
 	public float _powerUpMultiplier = 2f;
-	public bool _power1On;
-	public bool _power2On;
 	bool _canTwist;
+	bool _power1On;
+	bool _power2On;
 	KeyCode doTheTwist;
 	float _currentAngle;
 	float _timeCount;
@@ -89,6 +89,7 @@ public class HoopSpinner : MonoBehaviour {
 				}
 				if (_comboCount == _maxCombo) {
 					_power2On = true;
+					_power1On = false;
 				}
 			} else if(!_timeToTwist) {
 				//Else slow down 
@@ -108,26 +109,26 @@ public class HoopSpinner : MonoBehaviour {
 			}
 			if (_canPowerUp) {
 				_powerPressCount = Mathf.Clamp(_powerPressCount+1, 0, _maxPowerCount);
-				if (_powerPressCount == _maxPowerCount) {
+				if (_powerPressCount == _maxPowerCount && !_power2On) {
 					_power1On = true;
 				}
 			}
 		}
 		//Update hoop 
 		Debug.Log (_power1On + ", " + _power2On);
-		if (_power1On && _currentHoop!=_powerHoop1) {
-			Debug.Log ("CHANGING TO POWER1 HOOP");
-			_basicHoop.SetActive(false);
-			_powerHoop1.SetActive(true);
-			_powerHoop2.SetActive(false);
-			_currentHoop = _powerHoop1;
-			_currentHoopJoint = _currentHoop.transform.FindChild ("joint_hoop1");
-		} else if (!_power1On && _power2On && _currentHoop!=_powerHoop2) { 
+		if (_power2On && _currentHoop!=_powerHoop2) {
 			Debug.Log ("CHANGING TO POWER2 HOOP");
 			_basicHoop.SetActive(false);
 			_powerHoop1.SetActive(false);
 			_powerHoop2.SetActive(true);
 			_currentHoop = _powerHoop2;
+			_currentHoopJoint = _currentHoop.transform.FindChild ("joint_hoop1");
+		} else if (!_power2On && _power1On && _currentHoop!=_powerHoop1) { 
+			Debug.Log ("CHANGING TO POWER1 HOOP");
+			_basicHoop.SetActive(false);
+			_powerHoop1.SetActive(true);
+			_powerHoop2.SetActive(false);
+			_currentHoop = _powerHoop1;
 			_currentHoopJoint = _currentHoop.transform.FindChild ("joint_hoop1");
 		} else if (!_power1On && !_power2On && _currentHoop!=_basicHoop) {
 			Debug.Log ("CHANGING TO NORMAL HOOP");

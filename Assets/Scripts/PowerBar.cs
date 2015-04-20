@@ -33,7 +33,6 @@ public class PowerBar : MonoBehaviour {
 
 	void DisablePowerUp() {
 		_playerHoop._powerPressCount = 0;
-		_playerHoop._power1On = false;
 		_obtainedPower = false;
 		GetComponent<ImageColorTransition>().colorsChanging = false;
 		_bar.color = Color.white;

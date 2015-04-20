@@ -22,5 +22,4 @@ public class ComboBarScrollView : MonoBehaviour {
 			_text.text = _text.text.Replace("POWER", "OVERDRIVE!");
 		}
 	}
-
 }

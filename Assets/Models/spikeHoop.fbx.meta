@@ -1,0 +1,142 @@
+fileFormatVersion: 2
+guid: 6e97749f4ab70f14da5834785222db44
+ModelImporter:
+  serializedVersion: 16
+  fileIDToRecycleName:
+    100000: joint_hoop1
+    100002: //RootNode
+    100004: spikeHoop1
+    100006: spikeHoop:pCone1
+    100008: spikeHoop:pCone10
+    100010: spikeHoop:pCone11
+    100012: spikeHoop:pCone12
+    100014: spikeHoop:pCone13
+    100016: spikeHoop:pCone14
+    100018: spikeHoop:pCone15
+    100020: spikeHoop:pCone16
+    100022: spikeHoop:pCone17
+    100024: spikeHoop:pCone18
+    100026: spikeHoop:pCone2
+    100028: spikeHoop:pCone3
+    100030: spikeHoop:pCone4
+    100032: spikeHoop:pCone5
+    100034: spikeHoop:pCone6
+    100036: spikeHoop:pCone7
+    100038: spikeHoop:pCone8
+    100040: spikeHoop:pCone9
+    100042: spikeHoop:polySurface1
+    400000: joint_hoop1
+    400002: //RootNode
+    400004: spikeHoop1
+    400006: spikeHoop:pCone1
+    400008: spikeHoop:pCone10
+    400010: spikeHoop:pCone11
+    400012: spikeHoop:pCone12
+    400014: spikeHoop:pCone13
+    400016: spikeHoop:pCone14
+    400018: spikeHoop:pCone15
+    400020: spikeHoop:pCone16
+    400022: spikeHoop:pCone17
+    400024: spikeHoop:pCone18
+    400026: spikeHoop:pCone2
+    400028: spikeHoop:pCone3
+    400030: spikeHoop:pCone4
+    400032: spikeHoop:pCone5
+    400034: spikeHoop:pCone6
+    400036: spikeHoop:pCone7
+    400038: spikeHoop:pCone8
+    400040: spikeHoop:pCone9
+    400042: spikeHoop:polySurface1
+    4300000: spikeHoop:polySurface1
+    4300002: spikeHoop:pCone2
+    4300004: spikeHoop:pCone3
+    4300006: spikeHoop:pCone4
+    4300008: spikeHoop:pCone5
+    4300010: spikeHoop:pCone6
+    4300012: spikeHoop:pCone7
+    4300014: spikeHoop:pCone8
+    4300016: spikeHoop:pCone9
+    4300018: spikeHoop:pCone10
+    4300020: spikeHoop:pCone11
+    4300022: spikeHoop:pCone12
+    4300024: spikeHoop:pCone13
+    4300026: spikeHoop:pCone14
+    4300028: spikeHoop:pCone15
+    4300030: spikeHoop:pCone16
+    4300032: spikeHoop:pCone17
+    4300034: spikeHoop:pCone18
+    4300036: spikeHoop:pCone1
+    9500000: //RootNode
+    13700000: spikeHoop:pCone1
+    13700002: spikeHoop:pCone10
+    13700004: spikeHoop:pCone11
+    13700006: spikeHoop:pCone12
+    13700008: spikeHoop:pCone13
+    13700010: spikeHoop:pCone14
+    13700012: spikeHoop:pCone15
+    13700014: spikeHoop:pCone16
+    13700016: spikeHoop:pCone17
+    13700018: spikeHoop:pCone18
+    13700020: spikeHoop:pCone2
+    13700022: spikeHoop:pCone3
+    13700024: spikeHoop:pCone4
+    13700026: spikeHoop:pCone5
+    13700028: spikeHoop:pCone6
+    13700030: spikeHoop:pCone7
+    13700032: spikeHoop:pCone8
+    13700034: spikeHoop:pCone9
+    13700036: spikeHoop:polySurface1
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  additionalBone: 0
+  userData: 

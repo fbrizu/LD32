@@ -1,0 +1,142 @@
+fileFormatVersion: 2
+guid: 3ad2ce5d0dc0b804e869c917692e8e39
+ModelImporter:
+  serializedVersion: 16
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: flameHoop1
+    100004: joint_hoop1
+    100006: pCylinder0
+    100008: pCylinder1
+    100010: pCylinder2
+    100012: pCylinder3
+    100014: pCylinder4
+    100016: pCylinder5
+    100018: pCylinder6
+    100020: pCylinder7
+    100022: pCylinder8
+    100024: pSphere0
+    100026: pSphere1
+    100028: pSphere2
+    100030: pSphere3
+    100032: pSphere4
+    100034: pSphere5
+    100036: pSphere6
+    100038: pSphere7
+    100040: pSphere8
+    100042: ring
+    400000: //RootNode
+    400002: flameHoop1
+    400004: joint_hoop1
+    400006: pCylinder0
+    400008: pCylinder1
+    400010: pCylinder2
+    400012: pCylinder3
+    400014: pCylinder4
+    400016: pCylinder5
+    400018: pCylinder6
+    400020: pCylinder7
+    400022: pCylinder8
+    400024: pSphere0
+    400026: pSphere1
+    400028: pSphere2
+    400030: pSphere3
+    400032: pSphere4
+    400034: pSphere5
+    400036: pSphere6
+    400038: pSphere7
+    400040: pSphere8
+    400042: ring
+    4300000: ring
+    4300002: pCylinder0
+    4300004: pSphere0
+    4300006: pCylinder1
+    4300008: pSphere1
+    4300010: pCylinder2
+    4300012: pSphere2
+    4300014: pCylinder3
+    4300016: pSphere3
+    4300018: pCylinder4
+    4300020: pSphere4
+    4300022: pCylinder5
+    4300024: pSphere5
+    4300026: pCylinder6
+    4300028: pSphere6
+    4300030: pCylinder7
+    4300032: pSphere7
+    4300034: pCylinder8
+    4300036: pSphere8
+    9500000: //RootNode
+    13700000: pCylinder0
+    13700002: pCylinder1
+    13700004: pCylinder2
+    13700006: pCylinder3
+    13700008: pCylinder4
+    13700010: pCylinder5
+    13700012: pCylinder6
+    13700014: pCylinder7
+    13700016: pCylinder8
+    13700018: pSphere0
+    13700020: pSphere1
+    13700022: pSphere2
+    13700024: pSphere3
+    13700026: pSphere4
+    13700028: pSphere5
+    13700030: pSphere6
+    13700032: pSphere7
+    13700034: pSphere8
+    13700036: ring
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  additionalBone: 0
+  userData: 

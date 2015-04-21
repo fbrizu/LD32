@@ -84,7 +84,8 @@ public class Body : MonoBehaviour {
 		}
 
 		HoopSpinner hoop = FindHoop();
-		_animator.SetLayerWeight(1, Mathf.Clamp(hoop._currentSpeed / 2000, 0, 1));
+		float wigglingSpeed = ((hoop._currentSpeed) * (hoop._currentSpeed) / 3500000 < 0.1f) ? 0 : (hoop._currentSpeed) * (hoop._currentSpeed) / 3500000;
+		_animator.SetLayerWeight(1, Mathf.Clamp(wigglingSpeed, 0, 1));
 
 		if(_currentHealth <= 0) {
 			GameController gameController = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<GameController>();

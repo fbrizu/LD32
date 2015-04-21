@@ -59,11 +59,11 @@ public class HoopSpinner : MonoBehaviour {
 	void Update () {
 		_timeCount = _timeCount + Time.deltaTime;
 		if (_timeCount < 0.75f && _timeCount > 0.25f) {
-			_status.text = "GO";
-			_status.color = Color.red;
+			_status.text = "TWIST";
+			_status.color = Color.blue;
 			_timeToTwist = true;
 		} else {
-			_status.text = "no go";
+			_status.text = "";
 			_status.color = Color.gray;
 			_timeToTwist = false;
 			_canTwist = true;

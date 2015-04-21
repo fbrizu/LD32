@@ -46,18 +46,18 @@ public class Body : MonoBehaviour {
 		if (Input.GetKey (_tiltLeft) && !_isMoving) {
 			_tilt = Mathf.Min(1, _tilt + _bendSpeed);
 			_animator.Play ("wobblyDude_bend", 0, _tilt);
-			_animator.speed = 0f;
+			_animator.speed = 1.0f;
 		} else if (!_animator.GetBool ("isJumping") && Input.GetKey (_tiltRight)) {
 			_tilt = Mathf.Max (0, _tilt - _bendSpeed);
 			_animator.Play ("wobblyDude_bend", 0, _tilt);
-			_animator.speed = 0f;
+			_animator.speed = 1.0f;
 		}
 		if (Input.GetKey (_tiltRight) && !_isMoving) {
 			_tilt = Mathf.Max (0, _tilt - _bendSpeed);
 		}
 		if(!_animator.GetBool("isJumping")){
 			_animator.Play("wobblyDude_bend", 0, _tilt);
-			_animator.speed = 0.0f;
+			_animator.speed = 1.0f;
 		}
 
 	if(Input.GetKey(_rightArrow) && !_isMoving){

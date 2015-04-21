@@ -21,7 +21,11 @@ public class MainMenuScreen : MonoBehaviour {
 		_canChangeScreen = true;
 	}
 
-	public void ChangeScreen() {
+	public void PlayGame() {
 		Application.LoadLevel("hoopyTest");
+	}
+
+	public void Credits() {
+		Application.LoadLevel("Credits");
 	}
 }

@@ -25,7 +25,7 @@ public class Body : MonoBehaviour {
 		_tilt = 0.5f;
 		_animator = this.GetComponent<Animator>();
 		_animator.Play("wobblyDude_bend", 0, 0.5f);
-		_animator.speed = 0.0f;
+		_animator.speed = 1.0f;
 		if (id == 1) {
 			_leftArrow = KeyCode.A;
 			_rightArrow = KeyCode.D;
@@ -50,14 +50,14 @@ public class Body : MonoBehaviour {
 		} else if (!_animator.GetBool ("isJumping") && Input.GetKey (_tiltRight)) {
 			_tilt = Mathf.Max (0, _tilt - _bendSpeed);
 			_animator.Play ("wobblyDude_bend", 0, _tilt);
-			_animator.speed = 0f;
+			_animator.speed = 1.0f;
 		}
 		if (Input.GetKey (_tiltRight) && !_isMoving) {
 			_tilt = Mathf.Max (0, _tilt - _bendSpeed);
 		}
 		if(!_animator.GetBool("isJumping")){
 			_animator.Play("wobblyDude_bend", 0, _tilt);
-			_animator.speed = 0.0f;
+			_animator.speed = 1.0f;
 		}
 
 	if(Input.GetKey(_rightArrow) && !_isMoving){
@@ -83,6 +83,9 @@ public class Body : MonoBehaviour {
 			_isMoving = false;
 		}
 
+		HoopSpinner hoop = FindHoop();
+		_animator.SetLayerWeight(1, Mathf.Clamp(hoop._currentSpeed / 2000, 0, 1));
+
 		if(_currentHealth <= 0) {
 			GameController gameController = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<GameController>();
 			gameController.GameOver = true;
@@ -93,6 +96,16 @@ public class Body : MonoBehaviour {
 			int mult = (id == 1) ? -1 : 1;
 			transform.position = Vector3.Lerp(transform.position, _initialHitPosition + mult * Vector3.right * 25, 0.35f);
 		}
+	}
+
+	HoopSpinner FindHoop() {
+		GameObject[] hoops = GameObject.FindGameObjectsWithTag("Dude");
+		foreach(GameObject hoop in hoops) {
+			if(hoop.GetComponent<HoopSpinner>()._id == id) {
+				return hoop.GetComponent<HoopSpinner>();
+			}
+		}
+		return null;
 	}
 
 	public void TakeDamage(float damage) {
